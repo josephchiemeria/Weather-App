@@ -32,3 +32,23 @@ applyTheme()
         applyTheme();
         alert("saved successfully");
     })
+
+
+    let span = document.querySelector(".span")
+     let link = document.querySelector(".links")
+
+     span.addEventListener("click",(e)=>{
+        e.stopPropagation();
+       if(link.style.visibility === "visible"){
+        link.style.visibility =  "hidden";
+       }
+
+       else{
+          link.style.visibility = "visible";
+       }
+       
+     })
+
+     document.addEventListener("click",()=>{
+        link.style.visibility = "hidden";
+     })

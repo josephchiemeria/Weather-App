@@ -1,10 +1,10 @@
 body {
- background: linear-gradient(to right,#3F6FA8 0%,#5C89BD 40%,#6C8EB0 100%);
+ background: white;
  font-family: Arial, Helvetica, sans-serif;
  display: flex;
  justify-content: center;
  align-items: center;
- height: 100vh;
+ color: navy;
 }
 
 
@@ -22,13 +22,17 @@ body.dark h2{
     color: white;
 }
 
-
-
+main{
+    margin-top: 50px;
+}
 
 
 .logo {
-    padding-bottom: 10px;
+    font-weight: bold;
+    color: blue;
     font-size: 17px;
+    flex-shrink: 0;
+    
 }
 
 .top{
@@ -36,30 +40,53 @@ body.dark h2{
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
-    background: skyblue;
+    box-sizing: border-box; 
+    background: white;
     padding: 10px;
 }
 
 .upper {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-   
-    padding-right: 30px;
-   gap: 20px;
+    justify-content: space-between;
+    padding-right: 3px;
+    flex-wrap: nowrap;
+    gap: 10px;
 }
 
 .links {
+    
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
+
+ .next{
+    display: flex;
+ gap: 20px;
+}
+
+.links a {
+    white-space: nowrap;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+a:hover {
+    color: blue;
+    border-bottom: 1px solid blue;
+}
+
+
 
 .cover {
     background: aliceblue;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    
 }
 
 .select {
@@ -81,7 +108,7 @@ select {
 
 i{
     padding-right: 8px;
-    color: #5C89BD;
+    color: navy;
    
 }
 
@@ -110,5 +137,32 @@ h3{
     font-weight: lighter;
     font-size: 15px;
     margin-bottom: 17px;
+}
+
+.links{
+    position: fixed;
+    background: lightgray;
+    top: 45px;
+    right: 10px;
+    border-radius: 10px;
+    visibility: hidden;
+}
+.next{
+     display: flex;
+    flex-direction: column;
+    padding: 16px;
+   
+}
+.next a {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+span{
+    display: block;
+    background: black;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    margin-bottom: 3px;
 }
 }

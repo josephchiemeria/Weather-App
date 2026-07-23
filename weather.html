@@ -13,21 +13,26 @@
       <div class="top">
         <div class="upper">
         <div class="logo">🌥️Weather App</div>
-        <div class="links">
-       <a href="weather.html">Weather</a>
-       <a href="settings.html">Settings</a>
-       </div> 
-       </div>
-       
 
-        
-       <div class="searchbox">
+      <div class="searchbox">
        <input type="text" id="input" placeholder="Enter City">
        <button id="clearbtn"><i class="fa-solid fa-xmark"></i></button>
        <button id="btn">Search</button>
        </div>
 
-       
+        <div class="span">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+        <div class="links">
+          <div class="next">
+       <a href="weather.html"><i class="fa-solid fa-house"></i>Weather</a>
+       <a href="settings.html"><i class="fa-solid fa-gear"></i>Settings</a>
+       </div> 
+       </div>
+       </div>
        </div>
        
      
@@ -35,32 +40,56 @@
     <div class="flex">
      <div class="details">
         <div id="place">Lagos, NG </div>
-        <div class="detail">
-        <div id="temp">40°C</div>
+        <div class="div">
+         
         <img src="" id="icon">
+         <div class="small">
+        <div id="temp">40°C</div>
         <p id="para">partly cloudy</p>
-        
+        </div>
+        </div>
+
         <div class="cards">
       <div class="fee-card">
-        <h4>Feels Like</h4>
+        <div class="card"><i class="fa-solid fa-thermometer-half"></i>Feels Like</div>
         <div id="fee">30°C</div>
       </div>
+    
+      
       
       <div class="hum-card">
-        <h4>Humidity</h4>
-        <div id="hum">50%</div>
+        <div class="card"><i class="fa-solid fa-droplet "></i>Humidity</div>
+        <div class="hum">50%</div>
       </div>
+    
+
       
       <div class="win-card">
-        <h4>Wind Speed</h4>
+        <div class="card"><i class="fa-solid fa-wind"></i>Wind</div>
         <div id="win">10 km/h</div>
       </div>
-    </div>
-        </div>
-     </div>
+    
 
+      
+      <div class="pre-card">
+        <div class="card"><i class="fa-solid fa-gauge"></i>Pressure</div>
+        <div id="pre">10 km</div>
+      </div>
+  
+    
+    <div class="vis-card">
+        <div class="card"><i class="fa-solid fa-eye"></i>Visibility</div>
+        <div id="vis">59km</div>
+      </div>
+      </div>
+      </div>
+       
      <div class="forecast">
+       <div class="join">
+      <div class="hourly-card">
+       <h3>Hourly Forecast</h3>
         <div class="hourly">
+
          <div class="hour-card">
           <div class="hour">1 AM</div>
           <img src="" class="hour-icon">
@@ -108,41 +137,93 @@
           <img src="" class="hour-icon">
           <div class="hour-temp">30°C</div>
          </div>
+         </div>
         </div>
-
+        
+        <div class="lower">
+        <div class="last">
+          
+          <div class="pop">
+      <div class="cha-card">
+        <div class="list"><i class="fa-solid fa-cloud-rain cha-icon"></i>Chance of Rain</div>
+        <div id="cha">30°C</div>
+      </div>
+      </div>
+        
+    <div class="pop">
+      <div class="hum-card">
+        <div class="list"><i class="fa-solid fa-droplet hum-icon"></i>Humidity</div>
+        <div class="hum">50%</div>
+      </div>
+      </div>
+      
+      <div class="pop">
+      <div class="sunrise-card">
+        <div class="list"><i class="fa-solid fa-sun sunrise-icon"></i>Sunrise</div>
+        <div id="rise">10 km/h</div>
+      </div>
+      </div>
+     
+       <div class="pop">
+      <div class="sunset-card">
+        <div class="list"><i class="fa-solid fa-moon sunset-icon"></i>Sunset</div>
+        <div id="set">10 km</div>
+      </div>
+      </div>
+      </div>
+       </div>
+        </div>
+  
+    
+       
+        <div class="daily-card">
+         <h3>Daily Forecast</h3>
         <div class="daily">
+
          <div class="day-card">
+
           <div class="day">Mon</div>
           <img src="" class="day-icon">
           <div class="day-temp">30°C</div>
+          <div class="day-para">partly</div>
          </div>
 
          <div class="day-card">
           <div class="day">Tue</div>
           <img src="" class="day-icon">
           <div class="day-temp">30°C</div>
+          <div class="day-para">partly</div>
          </div>
 
          <div class="day-card">
           <div class="day">Wed</div>
           <img src="" class="day-icon">
           <div class="day-temp">30°C</div>
+          <div class="day-para">partly</div>
          </div>
 
          <div class="day-card">
           <div class="day">Thu</div>
           <img src="" class="day-icon">
           <div class="day-temp">30°C</div>
+          <div class="day-para">partly</div>
          </div>
 
          <div class="day-card">
           <div class="day">Fri</div>
           <img src="" class="day-icon">
           <div class="day-temp">30°C</div>
+          <div class="day-para">partly</div>
+         </div>
          </div>
         </div>
-     </div>
-    </div>
+
+       </div>
+     
+        
+
+
+
     </main>
     <script src="weather.js"></script>
 </body>

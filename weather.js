@@ -6,67 +6,27 @@ let place = document.getElementById("place");
 let temp = document.getElementById("temp");
 let icon =  document.getElementById("icon");
 let para =  document.getElementById("para");
-let hum =  document.getElementById("hum");
+let hum =  document.querySelectorAll(".hum");
 let win =  document.getElementById("win");
 let fee =  document.getElementById("fee");
+let pre =  document.getElementById("pre");
+let vis =  document.getElementById("vis");
 let days = document.querySelectorAll(".day");
 let dayTemp = document.querySelectorAll(".day-temp");
+let dayPara = document.querySelectorAll(".day-para");
 let dayIcon = document.querySelectorAll(".day-icon");
 let hours = document.querySelectorAll(".hour");
 let hourTemp = document.querySelectorAll(".hour-temp");
 let hourIcon = document.querySelectorAll(".hour-icon");
+let cha =  document.getElementById("cha");
+let rise =  document.getElementById("rise");
+let set =  document.getElementById("set");
 
 
 tempUnit = localStorage.getItem("tempUnit") || "metric";
 windUnit = localStorage.getItem("windUnit") || "m/s";
 theme = localStorage.getItem("theme") || "light";
 language = localStorage.getItem("language") || "en";
-
-
-let h4 = document.querySelectorAll("h4");
-
-if (language === "en") {
-    h4[0].textContent = "Feels Like";
-    h4[1].textContent = "Humidity";
-    h4[2].textContent = "Wind Speed";
-}
-
-else if (language === "fr") {
-    h4[0].textContent = "Ressenti";
-    h4[1].textContent = "Humidité";
-    h4[2].textContent = "Vitesse du vent";
-}
-
-else if (language === "es") {
-    h4[0].textContent = "Sensación térmica";
-    h4[1].textContent = "Humedad";
-    h4[2].textContent = "Velocidad del viento";
-}
-
-else if (language === "de") {
-    h4[0].textContent = "Gefühlt";
-    h4[1].textContent = "Luftfeuchtigkeit";
-    h4[2].textContent = "Windgeschwindigkeit";
-}
-
-else if (language === "it") {
-    h4[0].textContent = "Percepita";
-    h4[1].textContent = "Umidità";
-    h4[2].textContent = "Velocità del vento";
-}
-
-else if (language === "pt") {
-    h4[0].textContent = "Sensação térmica";
-    h4[1].textContent = "Umidade";
-    h4[2].textContent = "Velocidade do vento";
-}
-
-else if (language === "ar") {
-    h4[0].textContent = "المحسوسة";
-    h4[1].textContent = "الرطوبة";
-    h4[2].textContent = "سرعة الرياح";
-}
-
 
 
 function getTemp(){
@@ -116,8 +76,31 @@ function getWind(speed){
         icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
         win.innerHTML = getWind(data.wind.speed);
-        hum.innerHTML = data.main.humidity + "%";
+        hum.forEach((item)=>{
+            item.innerHTML = data.main.humidity + "%"; 
+        })
+        let visKM = data.visibility / 1000;
+        vis.innerHTML = `${visKM} km`;
+        pre.innerHTML = data.main.pressure + " hPa";
         fee.innerHTML = Math.round(data.main.feels_like) + getTemp();
+        const sunrise = new Date(data.sys.sunrise * 1000);
+        const sunriseTime = sunrise.toLocaleTimeString([], {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true
+        });
+        rise.innerHTML = sunriseTime;
+
+
+        const sunset = new Date(data.sys.sunset * 1000);
+        const sunsetTime = sunset.toLocaleTimeString([], {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true
+        });
+        set.innerHTML = sunsetTime;
+
+
 
         input.value = "";
     }
@@ -142,6 +125,7 @@ function getWind(speed){
          dayTemp[index].innerHTML = Math.round(day.main.temp) + getTemp();
          let dIcon = day.weather[0].icon;
          dayIcon[index].src = `https://openweathermap.org/img/wn/${dIcon}@2x.png`;
+         dayPara[index].innerHTML = day.weather[0].description;
         })
 
         let hourlyForecast = [];
@@ -173,6 +157,9 @@ function getWind(speed){
             let hIcon = hour.weather[0].icon;
             hourIcon[index].src = `https://openweathermap.org/img/wn/${hIcon}@2x.png`;
         })
+
+       let chance = data.list[0].pop * 100;
+       cha.innerHTML = Math.round(chance) + "%";
      }
 
      input.addEventListener("keydown",(e)=>{
@@ -211,3 +198,21 @@ function getWind(speed){
     let defaultCity = "Lagos, NG";
      getWeather(defaultCity)
      forWeather(defaultCity)
+
+
+     let span = document.querySelector(".span")
+     let link = document.querySelector(".links")
+
+     span.addEventListener("click",(e)=>{
+        e.stopPropagation();
+       if(link.style.visibility === "visible"){
+        link.style.visibility =  "hidden";
+       }
+
+       else{
+          link.style.visibility = "visible";
+       }
+       
+     })
+
+    
